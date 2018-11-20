@@ -2,3 +2,8 @@ node_modules
 bower_components
 *.log
 *.swp
+subtotal.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+package-lock.json

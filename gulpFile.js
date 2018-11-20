@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     spawn = require('child_process').spawn,
     coffee = require('gulp-coffee'),
     gutil = require('gulp-util'),
-    uglify = require("gulp-uglify"),
+    uglify = require("gulp-uglify-es").default,
     rename = require('gulp-rename'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
@@ -26,16 +26,16 @@ gulp.task('makeCss', function() {
 });
 
 gulp.task('makeJs', function() {
-    
+
     gulp.src(['./*.coffee', './tests/*.coffee'])
         //compile to js (and create map files)
         .pipe(sourcemaps.init())
         .pipe(coffee()).on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./dist'))
-        
+
         //minify js files as well
-        .pipe(filter('dist/*.js'))//filter, to avoid doing this processing on the map files generated above 
+        .pipe(filter('dist/*.js'))//filter, to avoid doing this processing on the map files generated above
         .pipe(rename({
             suffix: '.min'
         }))
@@ -46,11 +46,9 @@ gulp.task('makeJs', function() {
         .pipe(gulp.dest('./dist'));
 });
 
-
-
 function inc(importance) {
     // get all the files to bump version in
-    return gulp.src(['./package.json', './bower.json']) 
+    return gulp.src(['./package.json', './bower.json'])
         // bump the version number in those files
         .pipe(bump({type: importance}))
         // save it back to filesystem
@@ -67,15 +65,13 @@ gulp.task('push', function (done) {
   });
 });
 
-
 gulp.task('tag', function() {
     return gulp.src(['./package.json', './bower.json'])
     .pipe(git.commit('version bump'))
     // read only one file to get the version number
-    .pipe(filter('package.json')) 
+    .pipe(filter('package.json'))
     .pipe(tag_version());
 });
-
 
 gulp.task('bumpPatch', function() { return inc('patch'); })
 gulp.task('bumpMinor', function() { return inc('minor'); })
