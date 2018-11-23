@@ -192,7 +192,7 @@
         removeClass(element, replaceClassName);
         return addClass(element, byClassName);
       };
-      // Based on http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript -- End 
+      // Based on http://stackoverflow.com/questions/195951/change-an-elements-class-with-javascript -- End
       createElement = function(elementType, className, textContent, attributes, eventHandlers) {
         var attr, e, event, handler, val;
         e = document.createElement(elementType);
@@ -304,7 +304,9 @@
         if (col === attrs.length - 1 || col >= opts.disableFrom || opts.disableExpandCollapse) {
           arrow = "";
         }
-        ah.th = createElement("th", `pvtAxisLabel ${hClass}`, `${arrow}${ah.text}`);
+        ah.th = createElement("th", `pvtAxisLabel ${hClass}`, `${arrow}${ah.text}`, {
+          title: ah.text
+        });
         if (col < attrs.length - 1 && col < opts.disableFrom && !opts.disableExpandCollapse) {
           ah.th.onclick = function(event) {
             event = event || window.event;
@@ -973,8 +975,7 @@
         }
         return results;
       };
-      
-      // when h.clickStatus is clickStatusCollapsed and h.children.length isnt 0 for i in [0..col] 
+      // when h.clickStatus is clickStatusCollapsed and h.children.length isnt 0 for i in [0..col]
       main = function(rowAttrs, rowKeys, colAttrs, colKeys) {
         var chKey, colAttrHeaders, colAxisHeaders, colKeyHeaders, k, l, len, len1, node, ref, ref1, result, rowAttrHeaders, rowAxisHeaders, rowKeyHeaders, tbody, thead, tr;
         rowAttrHeaders = [];
