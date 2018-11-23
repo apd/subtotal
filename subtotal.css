@@ -1,6 +1,9 @@
 /* AxisLabel */
 table.pvtTable .pvtAxisLabel {
     white-space: nowrap;
+    max-width: 360px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 table.pvtTable .pvtAxisLabel.expanded {
     white-space: nowrap;
@@ -18,6 +21,9 @@ table.pvtTable tbody tr th.pvtRowLabel {
     background-color: #ffffff;
     /*border-width: 0px 0px thin 0px !important;*/
     border: 0;
+    max-width: 360px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 table.pvtTable tbody tr th.pvtRowLabel.rowexpanded {
     cursor: pointer !important;
