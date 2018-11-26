@@ -616,7 +616,7 @@
       buildGrandTotal = function(tbody, tr, rowAttrs, colAttrs, opts) {
         var td, totalAggregator, val;
         totalAggregator = allTotal;
-        val = totalAggregator.value();
+        val = totalAggregator.value() / 1000;
         td = createElement("td", "pvtGrandTotal", totalAggregator.format(val), {
           "data-value": val
         }, getTableEventHandlers(val, [], [], rowAttrs, colAttrs, opts));

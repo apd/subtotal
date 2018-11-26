@@ -402,7 +402,7 @@ callWithJQuery ($) ->
 
         buildGrandTotal = (tbody, tr, rowAttrs, colAttrs, opts) ->
             totalAggregator = allTotal
-            val = totalAggregator.value()
+            val = totalAggregator.value()/1000
             td = createElement "td", "pvtGrandTotal", totalAggregator.format(val),
                 {"data-value": val},
                 getTableEventHandlers val, [], [], rowAttrs, colAttrs, opts
