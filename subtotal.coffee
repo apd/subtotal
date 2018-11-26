@@ -367,7 +367,7 @@ callWithJQuery ($) ->
 
                 # buildRowTotal
                 totalAggregator = rowTotals[rh.flatKey]
-                val = totalAggregator.value()
+                val = totalAggregator.value()/1000
                 td = createElement "td", "pvtTotal rowTotal #{rCls}", totalAggregator.format(val),
                     "data-value": val
                     "data-row": "row#{rh.row}"
