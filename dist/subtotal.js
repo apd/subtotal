@@ -549,7 +549,7 @@
                 return "";
               }
             };
-            val = aggregator.value();
+            val = aggregator.value() / 1000;
             cls = ` ${rCls} col${ch.row} colcol${ch.col} ${classColExpanded}`;
             if (ch.children.length > 0) {
               cls += " pvtColSubtotal";

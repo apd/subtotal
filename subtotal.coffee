@@ -350,7 +350,7 @@ callWithJQuery ($) ->
                 tr = if rh.sTr then rh.sTr else rh.tr
                 for ch in colAttrHeaders when ch.col is colAttrs.length-1 or (ch.children.length isnt 0 and ch.col < opts.colSubtotalDisplay.disableFrom)
                     aggregator = tree[rh.flatKey][ch.flatKey] ? {value: (-> null), format: -> ""}
-                    val = aggregator.value()
+                    val = aggregator.value()/1000
                     cls = " #{rCls} col#{ch.row} colcol#{ch.col} #{classColExpanded}"
                     if ch.children.length > 0
                         cls += " pvtColSubtotal"
