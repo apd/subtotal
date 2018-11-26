@@ -603,7 +603,7 @@
             clsNames += ` ${classColShow}`;
           }
           totalAggregator = colTotals[h.flatKey];
-          val = totalAggregator.value();
+          val = totalAggregator.value() / 1000;
           td = createElement("td", clsNames, totalAggregator.format(val), {
             "data-value": val,
             "data-for": `col${h.col}`,
